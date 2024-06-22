@@ -1,5 +1,6 @@
 import express from 'express'
-import { limiter, dbauth  } from './middleware/index.js';
+import { limiter } from './middleware/index.js';
+import { auth as db }  from './db/auth.js';
 import { router } from "./routes/index.js";
 import pkg from '../package.json' with { type: "json" };
 
@@ -13,4 +14,4 @@ app.use("/", router);
 app.get('/', (req, res) => res.json({name: pkg.name, version: pkg.version, author: pkg.author}))
 app.all('*', (req, res, nextAll) => nextAll(404))
 
-await dbauth();
+await db()
