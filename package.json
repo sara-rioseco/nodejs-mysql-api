@@ -2,10 +2,10 @@
   "name": "nodejs-mysql-api",
   "version": "1.0.0",
   "description": "A rest API made with NodeJS, Express and MySQL to manage users, authentication and authorization.",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env index.js --watch",
+    "start": "node --watch --env-file=.env server.js",
     "test": "jest --coverage --verbose"
   },
   "keywords": [
@@ -16,20 +16,26 @@
     "APIrest",
     "restful"
   ],
-  "author": "Sara Rioseco <sara.rioseco@gmail.com> (https://github.com/sara-rioseco)",
+  "author": {
+    "name": "Sara Rioseco",
+    "email": "sara.rioseco@gmail.com",
+    "url": "https://github.com/sara-rioseco"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sara-rioseco/nodejs-mysql-api.git"
   },
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "4.19.2",
+    "express-rate-limit": "^7.3.1",
     "mysql2": "^3.10.1",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.7",
     "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
     "@babel/types": "7.24.7",
     "@eslint/config-array": "0.16.0",
