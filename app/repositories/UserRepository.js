@@ -9,6 +9,12 @@ export const UserRepository = {
     return await User.findByPk(id);
   },
 
+  getByEmail: async function (email) {
+    return await User.findOne({ where: {
+      email,
+    }})
+  },
+
   postUser: async function (user) {
     const { name, surname, email, password } = user
     const u = await User.create({ name, surname, email, password });
