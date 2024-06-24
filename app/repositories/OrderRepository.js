@@ -1,4 +1,4 @@
-export const OrderService = {
+export const OrderRepository = {
   getOrders: async function () {
     return 'get orders';
   },

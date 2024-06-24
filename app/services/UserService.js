@@ -1,35 +1,12 @@
 import { User } from '../models/user.js';
+import { UserRepository } from '../repositories/index.js';
+
+const { getUsers, getById, postUser, updateUser, deleteUser } = UserRepository
 
 export const UserService = {
-  getUsers: async function () {
-    return await User.findAll();
-  },
-
-  getById: async function (id) {
-    return await User.findByPk(id);
-  },
-
-  postUser: async function (user) {
-    const { name, surname, email, password } = user
-    const u = await User.create({ name, surname, email, password });
-    const newUser = await u.save();
-    return newUser;
-  },
-
-  updateUser: async function (user, id) {
-    const { name, surname, email, password } = user
-    return await User.update({ name, surname, email, password },
-      { where: {
-        id,
-      }}
-    );
-  },
-
-  deleteUser: async function (id) {
-    return await User.destroy({
-      where: {
-        id,
-      },
-    });
-  },
+  getUsers: async () => getUsers(),
+  getById: async (id) => getById(id),
+  postUser: async (user) => postUser(user),
+  updateUser: async (user, id) => updateUser(user, id),
+  deleteUser: async (id) => deleteUser(id),
 };
