@@ -20,7 +20,7 @@ export const UserService = {
     const { name, surname, email, password } = user
     return await User.update({ name, surname, email, password },
       { where: {
-        id: id,
+        id,
       }}
     );
   },
@@ -28,7 +28,7 @@ export const UserService = {
   deleteUser: async function (id) {
     return await User.destroy({
       where: {
-        id: id,
+        id,
       },
     });
   },

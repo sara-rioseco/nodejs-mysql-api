@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env server.js",
+    "start": "node --watch --env-file=.env server.js",
     "test": "jest --coverage --verbose"
   },
   "keywords": [
@@ -27,7 +27,7 @@
     "url": "git+https://github.com/sara-rioseco/nodejs-mysql-api.git"
   },
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "4.19.2",
     "express-rate-limit": "^7.3.1",
     "mysql2": "^3.10.1",
     "sequelize": "^6.37.3"

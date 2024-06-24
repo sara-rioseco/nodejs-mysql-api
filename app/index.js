@@ -7,6 +7,7 @@ import pkg from '../package.json' with { type: "json" };
 let app
 export default app = express()
 
+app.disable('x-powered-by')
 app.set('pkg', pkg)
 app.use(express.json());
 app.use(limiter);
