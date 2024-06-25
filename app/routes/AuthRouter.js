@@ -7,4 +7,4 @@ const { login, signUp } = AuthController
 
 AuthRouter.post('/login', login)
 
-AuthRouter.get('/signup', signUp)
+AuthRouter.post('/signup', signUp)

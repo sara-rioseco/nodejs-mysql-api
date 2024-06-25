@@ -1,17 +1,17 @@
-import { AuthService } from '../services/index.js';
+import { UserService } from '../services/index.js';
 
-const { login, signUp } = AuthService;
+const { login, signUp } = UserService;
 
 export const AuthController = {
   login: async function (req, res, next) {
     try {
       const { email, password } = req.body;
-      const { token } = login(email, password);
+      const token = await login(email, password);
+      if (!token) res.send({ message: 'Invalid credentials'})
       if (token) {
-        res.send(token)
-        return
+        res.send({message: 'Login successful', data : { token }})
       }
-      else throw new Error('Error obtaining token');
+      next()
     } catch (err) {
       console.error(err);
       next(err);

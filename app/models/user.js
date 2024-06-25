@@ -25,6 +25,10 @@ export const User = db().define(
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    role: {
+      type: DataTypes.STRING(20),
+      defaultValue: 'user'
     }
   },
   {

@@ -16,15 +16,13 @@ export const UserRepository = {
   },
 
   postUser: async function (user) {
-    const { name, surname, email, password } = user
-    const u = await User.create({ name, surname, email, password });
+    const u = await User.create(user);
     const newUser = await u.save();
     return newUser;
   },
 
   updateUser: async function (user, id) {
-    const { name, surname, email, password } = user
-    return await User.update({ name, surname, email, password },
+    return await User.update(user,
       { where: {
         id,
       }}

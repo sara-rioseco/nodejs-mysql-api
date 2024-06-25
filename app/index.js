@@ -12,7 +12,6 @@ app.use(express.json());
 app.use(rateLimiter);
 app.use('/', router);
 app.get('/', (req, res) => res.json({name: pkg.name, version: pkg.version, author: pkg.author}))
-app.all('*', (req, res, nextAll) => nextAll(404))
 app.use(errorHandler)
 
 await db()
