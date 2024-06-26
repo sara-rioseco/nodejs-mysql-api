@@ -12,7 +12,7 @@ export const UserRepository = {
   getByEmail: async function (email) {
     return await User.findOne({ where: {
       email,
-    }})
+    }});
   },
 
   postUser: async function (user) {
